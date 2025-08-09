@@ -41,7 +41,7 @@ app.get("/post/:id", async (req, res) => {
   }
 });
 
-app.post("/post/:id", async (req, res) => {
+app.put("/post/:id", async (req, res) => {
   try {
     const reqId = Number(req.params.id);
     const { author, title, content } = req.body;
@@ -72,6 +72,17 @@ app.post("/post", async (req, res) => {
   }
 });
 
+app.delete("/post/:id", async (req, res) => {
+  try {
+    const reqId = Number(req.params.id);
+    const thePost = await prisma.post.delete({
+      where: { id: reqId },
+    });
+    res.send("Post deleted");
+  } catch (error) {
+    res.json("there was an error:", error.message);
+  }
+});
 
 
 
