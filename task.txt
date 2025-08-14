@@ -1,0 +1,4 @@
+1- Installing prisma
+2- Connecting prisma with Neon
+3- Creating a table called post with prisma
+4- Creating the API
